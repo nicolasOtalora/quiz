@@ -45,15 +45,15 @@ public class ChartServlet extends HttpServlet {
         ArrayList datos = dao.recursosProyecto();
 
         int n = 0;
-        for (int i = 0; i < datos.size(); i++) {
+        for (int i = 1; i < datos.size(); i+=2) {
             
-            int total = (Integer) datos.get(i + 1);
+            int total = (Integer) datos.get(i);
             n += total;
         }
-        for (int i = 0; i < datos.size(); i++) {
+        for (int i = 1; i < datos.size(); i+=2) {
 
-            String nombreProyecto = (String) datos.get(i);
-            int total = (Integer) datos.get(i + 1);
+            String nombreProyecto = (String) datos.get(i-1);
+            int total = (Integer) datos.get(i);
             
             double porcentaje = ((total*100)/n);
             
